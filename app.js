@@ -3,7 +3,7 @@ import { createServer } from "http";
 import crypto from "crypto";
 import path from "path";
 
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 const DATA_FILE = path.join("data", "links.json");
 
 const serveFile = async (res, filePath, contentType) => {
@@ -98,6 +98,6 @@ const server = createServer(async (req, res) => {
     }
 });
 
-server.listen(port, ()=> {
+server.listen(PORT, "0.0.0.0", ()=> {
     console.log(`Server running at http://localhost:${port}`);
 })
